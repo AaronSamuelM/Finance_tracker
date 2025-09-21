@@ -1,0 +1,109 @@
+{
+  "short_name": "FinanceTracker",
+  "name": "Finance Tracker - Personal Finance Management",
+  "description": "Track your income, expenses, and budgets with our comprehensive personal finance management application.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "maskable-icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#3b82f6",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["finance", "productivity", "business"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "screenshots": [
+    {
+      "src": "screenshot-mobile.png",
+      "type": "image/png",
+      "sizes": "392x851",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshot-desktop.png",
+      "type": "image/png",
+      "sizes": "1280x720",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Add Transaction",
+      "short_name": "Add Transaction",
+      "description": "Quickly add a new income or expense transaction",
+      "url": "/transactions?action=add",
+      "icons": [
+        {
+          "src": "shortcut-add.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "View Dashboard",
+      "short_name": "Dashboard",
+      "description": "View your financial overview and statistics",
+      "url": "/dashboard",
+      "icons": [
+        {
+          "src": "shortcut-dashboard.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Manage Budgets",
+      "short_name": "Budgets",
+      "description": "Create and manage your monthly budgets",
+      "url": "/budgets",
+      "icons": [
+        {
+          "src": "shortcut-budget.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.financetracker.app",
+      "id": "com.financetracker.app"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/app/finance-tracker/id123456789"
+    }
+  ],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-new"
+  },
+  "handle_links": "preferred",
+  "capture_links": "existing-client-navigate"
+}
