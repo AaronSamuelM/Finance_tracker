@@ -23,6 +23,7 @@ const Modal = ({
       }
     };
 
+    
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose, closeOnEscape]);
