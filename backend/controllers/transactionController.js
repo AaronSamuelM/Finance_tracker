@@ -5,7 +5,7 @@ const Budget = require('../models/Budget');
 // Get all transactions for user
 exports.getTransactions = async (req, res) => {
   try {
-    const { page = 1, limit = 10, type, category, startDate, endDate } = req.query;
+    const { page = 1, limit = 1000, type, category, startDate, endDate } = req.query;
     
     const query = { user: req.user.id };
     
