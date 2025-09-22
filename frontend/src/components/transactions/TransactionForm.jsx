@@ -262,3 +262,4 @@ const TransactionForm = ({ transaction, onSubmit, onCancel, loading = false }) =
     </form>
   );
 };
+export default TransactionForm;
