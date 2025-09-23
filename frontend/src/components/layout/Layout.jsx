@@ -18,6 +18,7 @@ import {
   ChevronRight,
   Plus
 } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 
 const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -97,6 +98,8 @@ const Layout = ({ children }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const {logout} = useAuth();
+
   const checkAuth = async () => {
     try {
       const token = localStorage.getItem('token');
@@ -138,7 +141,7 @@ const Layout = ({ children }) => {
   const handleLogout = async () => {
     localStorage.removeItem('token');
     setUser(null);
-    window.location.hash = '/login';
+    logout()
   };
 
   const handleNavigation = (path) => {
@@ -239,12 +242,6 @@ const Layout = ({ children }) => {
         </motion.div>
       </div>
     );
-  }
-
-  // Redirect to login if no user
-  if (!user && !loading) {
-    window.location.hash = '/login';
-    return null;
   }
 
   const unreadCount = notifications.filter(n => n.unread).length;
@@ -370,7 +367,7 @@ const Layout = ({ children }) => {
 
   // Navbar component
   const Navbar = () => (
-    <motion.header
+    <header
       className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-40"
       initial={{ y: -64 }}
       animate={{ y: 0 }}
@@ -465,7 +462,7 @@ const Layout = ({ children }) => {
                     initial={{ opacity: 0, scale: 0.95, y: -10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                    className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
+                    className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-50"
                   >
                     <div className="p-4 border-b border-gray-200">
                       <div className="flex items-center">
@@ -545,7 +542,7 @@ const Layout = ({ children }) => {
           }}
         />
       )}
-    </motion.header>
+    </header>
   );
 
   return (
