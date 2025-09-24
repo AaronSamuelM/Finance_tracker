@@ -10,8 +10,7 @@ const Modal = ({
   size = 'medium',
   showCloseButton = true,
   closeOnOverlayClick = true,
-  closeOnEscape = true,
-  maxHeight = 'max-h-96'
+  closeOnEscape = true
 }) => {
   // Handle escape key press
   useEffect(() => {
@@ -105,7 +104,7 @@ const Modal = ({
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
+            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
             onClick={handleOverlayClick}
           />
 
@@ -117,7 +116,7 @@ const Modal = ({
             exit="hidden"
             className={`
               relative bg-white rounded-xl shadow-2xl w-full ${sizeClasses[size]}
-              ${maxHeight} overflow-hidden
+              max-h-auto overflow-hidden
             `}
             role="dialog"
             aria-modal="true"
@@ -150,7 +149,7 @@ const Modal = ({
             )}
 
             {/* Content */}
-            <div className={`overflow-y-auto ${maxHeight === 'max-h-96' ? 'max-h-96' : maxHeight}`}>
+            <div className={`overflow-y-auto `}>
               <div className={title || showCloseButton ? 'p-6' : 'p-6'}>
                 {children}
               </div>
